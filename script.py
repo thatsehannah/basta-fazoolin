@@ -68,6 +68,20 @@ class Franchise:
     return menus
 
 flagship_store = Franchise("1232 West End Road", [brunch, early_bird, dinner, kids])
-print(flagship_store.available_menus(17))
+# print(flagship_store.available_menus(17))
 
 new_installment = Franchise("12 East Mulberry Street", [brunch, early_bird, dinner, kids])
+
+class Business:
+  def __init__(self, name, franchises) -> None:
+    self.name = name
+    self.franchises = franchises
+
+basta_fazoolin = Business("Basta Fazoolin' with my Heart", [flagship_store, new_installment])
+
+# New Business
+arepas_items = {'arepa pabellon': 7.00, 'pernil arepa': 8.50, 'guayanes arepa': 8.00, 'jamon arepa': 7.50}
+arepas = Menu("arepas", arepas_items, 10, 20)
+arepas_place = Franchise("189 Fitzgerald Avenue", [arepas])
+take_a_arepa = Business("Take a' Arepa", [arepas_place])
+print(take_a_arepa.franchises[0].available_menus(18))
